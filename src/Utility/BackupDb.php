@@ -127,7 +127,7 @@ class BackupDb
         $options = Hash::merge($this->getConfig(), $options);
 
         $script = $this->getScript($options);
-        exec($script);
+        shell_exec($script);
         $fileinfo = $this->updateFileinfo($options);
 
         $afterExecScript = $options['afterExecScript'] ?? null;

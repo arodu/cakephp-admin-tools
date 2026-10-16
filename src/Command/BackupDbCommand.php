@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace AdminTools\Command;
@@ -144,7 +143,7 @@ class BackupDbCommand extends Command
     /**
      * @param array $options
      * @param array $backupDbList
-     * @return boolean
+     * @return bool
      */
     protected function sendEmail(array $options, array $backupDbList): bool
     {
@@ -179,7 +178,7 @@ class BackupDbCommand extends Command
             ->setAttachments($content['files'])
             ->setViewVars([
                 'name' => $options['name'],
-                'backups' => $content['options']
+                'backups' => $content['options'],
             ])
             ->viewBuilder()
             ->setTemplate($options['template'] ?? 'AdminTools.backup')
